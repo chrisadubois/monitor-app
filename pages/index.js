@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -12,9 +13,32 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <div>
+        <button onClick={async () => {
+            try {
+              const response = await axios.get(
+                'https://www.bestbuy.com/'
+              )
+              console.log(response)
+            } catch (error) {
+              console.error(error)
+            }
+          }}>
+            MonitorBB
+          </button>
+          <button onClick={async () => {
+            try {
+              const response = await axios.get(
+                'https://www.target.com/'
+              )
+              console.log(response)
+            } catch (error) {
+              console.error(error)
+            }
+          }}>
+            MonitorTarget
+          </button>
+        </div>
       </main>
 
       <footer className={styles.footer}>
